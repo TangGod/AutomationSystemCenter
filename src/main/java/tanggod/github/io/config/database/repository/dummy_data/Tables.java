@@ -11,6 +11,7 @@ import tanggod.github.io.config.database.repository.dummy_data.tables.DummyChatg
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyConfig;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyOrder;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyProduct;
+import tanggod.github.io.config.database.repository.dummy_data.tables.DummyProductCategory;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyUserInfo;
 
 
@@ -51,6 +52,11 @@ public class Tables {
      * The table <code>dummy_data.dummy_product</code>.
      */
     public static final DummyProduct DUMMY_PRODUCT = tanggod.github.io.config.database.repository.dummy_data.tables.DummyProduct.DUMMY_PRODUCT;
+
+    /**
+     * The table <code>dummy_data.dummy_product_category</code>.
+     */
+    public static final DummyProductCategory DUMMY_PRODUCT_CATEGORY = tanggod.github.io.config.database.repository.dummy_data.tables.DummyProductCategory.DUMMY_PRODUCT_CATEGORY;
 
     /**
      * The table <code>dummy_data.dummy_user_info</code>.

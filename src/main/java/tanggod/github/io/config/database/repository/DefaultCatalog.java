@@ -14,6 +14,7 @@ import org.jooq.Schema;
 import org.jooq.impl.CatalogImpl;
 
 import tanggod.github.io.config.database.repository.dummy_data.DummyData;
+import tanggod.github.io.config.database.repository.independent_website.IndependentWebsite;
 import tanggod.github.io.config.database.repository.oauth.Oauth;
 import tanggod.github.io.config.database.repository.system.System;
 import tanggod.github.io.config.database.repository.system_log.SystemLog;
@@ -35,7 +36,7 @@ import tanggod.github.io.config.database.repository.wish_api.WishApi;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DefaultCatalog extends CatalogImpl {
 
-    private static final long serialVersionUID = -1835314370;
+    private static final long serialVersionUID = -460457188;
 
     /**
      * The reference instance of <code></code>
@@ -78,6 +79,11 @@ public class DefaultCatalog extends CatalogImpl {
     public final DummyData DUMMY_DATA = tanggod.github.io.config.database.repository.dummy_data.DummyData.DUMMY_DATA;
 
     /**
+     * The schema <code>independent_website</code>.
+     */
+    public final IndependentWebsite INDEPENDENT_WEBSITE = tanggod.github.io.config.database.repository.independent_website.IndependentWebsite.INDEPENDENT_WEBSITE;
+
+    /**
      * No further instances allowed
      */
     private DefaultCatalog() {
@@ -99,6 +105,7 @@ public class DefaultCatalog extends CatalogImpl {
             SystemLog.SYSTEM_LOG,
             System.SYSTEM,
             Oauth.OAUTH,
-            DummyData.DUMMY_DATA);
+            DummyData.DUMMY_DATA,
+            IndependentWebsite.INDEPENDENT_WEBSITE);
     }
 }

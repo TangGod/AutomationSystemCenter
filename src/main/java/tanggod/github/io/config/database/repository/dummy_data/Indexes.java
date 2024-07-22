@@ -15,6 +15,7 @@ import tanggod.github.io.config.database.repository.dummy_data.tables.DummyChatg
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyConfig;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyOrder;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyProduct;
+import tanggod.github.io.config.database.repository.dummy_data.tables.DummyProductCategory;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyUserInfo;
 
 
@@ -44,6 +45,7 @@ public class Indexes {
     public static final Index DUMMY_ORDER_4 = Indexes0.DUMMY_ORDER_4;
     public static final Index DUMMY_ORDER_PRIMARY = Indexes0.DUMMY_ORDER_PRIMARY;
     public static final Index DUMMY_PRODUCT_PRIMARY = Indexes0.DUMMY_PRODUCT_PRIMARY;
+    public static final Index DUMMY_PRODUCT_CATEGORY_PRIMARY = Indexes0.DUMMY_PRODUCT_CATEGORY_PRIMARY;
     public static final Index DUMMY_USER_INFO_1 = Indexes0.DUMMY_USER_INFO_1;
     public static final Index DUMMY_USER_INFO_PRIMARY = Indexes0.DUMMY_USER_INFO_PRIMARY;
 
@@ -61,6 +63,7 @@ public class Indexes {
         public static Index DUMMY_ORDER_4 = Internal.createIndex("4", DummyOrder.DUMMY_ORDER, new OrderField[] { DummyOrder.DUMMY_ORDER.ORDER_STATE }, false);
         public static Index DUMMY_ORDER_PRIMARY = Internal.createIndex("PRIMARY", DummyOrder.DUMMY_ORDER, new OrderField[] { DummyOrder.DUMMY_ORDER.ID }, true);
         public static Index DUMMY_PRODUCT_PRIMARY = Internal.createIndex("PRIMARY", DummyProduct.DUMMY_PRODUCT, new OrderField[] { DummyProduct.DUMMY_PRODUCT.ID }, true);
+        public static Index DUMMY_PRODUCT_CATEGORY_PRIMARY = Internal.createIndex("PRIMARY", DummyProductCategory.DUMMY_PRODUCT_CATEGORY, new OrderField[] { DummyProductCategory.DUMMY_PRODUCT_CATEGORY.ID }, true);
         public static Index DUMMY_USER_INFO_1 = Internal.createIndex("1", DummyUserInfo.DUMMY_USER_INFO, new OrderField[] { DummyUserInfo.DUMMY_USER_INFO.FULL_NAME }, false);
         public static Index DUMMY_USER_INFO_PRIMARY = Internal.createIndex("PRIMARY", DummyUserInfo.DUMMY_USER_INFO, new OrderField[] { DummyUserInfo.DUMMY_USER_INFO.ID }, true);
     }

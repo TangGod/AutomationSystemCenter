@@ -20,6 +20,7 @@ import tanggod.github.io.config.database.repository.dummy_data.tables.DummyChatg
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyConfig;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyOrder;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyProduct;
+import tanggod.github.io.config.database.repository.dummy_data.tables.DummyProductCategory;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyUserInfo;
 
 
@@ -36,7 +37,7 @@ import tanggod.github.io.config.database.repository.dummy_data.tables.DummyUserI
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DummyData extends SchemaImpl {
 
-    private static final long serialVersionUID = 1209334109;
+    private static final long serialVersionUID = -619284741;
 
     /**
      * The reference instance of <code>dummy_data</code>
@@ -67,6 +68,11 @@ public class DummyData extends SchemaImpl {
      * The table <code>dummy_data.dummy_product</code>.
      */
     public final DummyProduct DUMMY_PRODUCT = tanggod.github.io.config.database.repository.dummy_data.tables.DummyProduct.DUMMY_PRODUCT;
+
+    /**
+     * The table <code>dummy_data.dummy_product_category</code>.
+     */
+    public final DummyProductCategory DUMMY_PRODUCT_CATEGORY = tanggod.github.io.config.database.repository.dummy_data.tables.DummyProductCategory.DUMMY_PRODUCT_CATEGORY;
 
     /**
      * The table <code>dummy_data.dummy_user_info</code>.
@@ -103,6 +109,7 @@ public class DummyData extends SchemaImpl {
             DummyConfig.DUMMY_CONFIG,
             DummyOrder.DUMMY_ORDER,
             DummyProduct.DUMMY_PRODUCT,
+            DummyProductCategory.DUMMY_PRODUCT_CATEGORY,
             DummyUserInfo.DUMMY_USER_INFO);
     }
 }

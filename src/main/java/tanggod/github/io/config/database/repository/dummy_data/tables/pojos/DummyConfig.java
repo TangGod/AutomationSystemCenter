@@ -22,7 +22,7 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DummyConfig implements Serializable {
 
-    private static final long serialVersionUID = -112128112;
+    private static final long serialVersionUID = 770605253;
 
     private String  id;
     private Integer usOrderProportion;
@@ -32,6 +32,7 @@ public class DummyConfig implements Serializable {
     private Integer outOfStockCount;
     private Double  refundRate;
     private Integer waybillNumberApplication;
+    private String  dianxiaomiAccountName;
 
     public DummyConfig() {}
 
@@ -44,6 +45,7 @@ public class DummyConfig implements Serializable {
         this.outOfStockCount = value.outOfStockCount;
         this.refundRate = value.refundRate;
         this.waybillNumberApplication = value.waybillNumberApplication;
+        this.dianxiaomiAccountName = value.dianxiaomiAccountName;
     }
 
     public DummyConfig(
@@ -54,7 +56,8 @@ public class DummyConfig implements Serializable {
         Integer inStockCount,
         Integer outOfStockCount,
         Double  refundRate,
-        Integer waybillNumberApplication
+        Integer waybillNumberApplication,
+        String  dianxiaomiAccountName
     ) {
         this.id = id;
         this.usOrderProportion = usOrderProportion;
@@ -64,6 +67,7 @@ public class DummyConfig implements Serializable {
         this.outOfStockCount = outOfStockCount;
         this.refundRate = refundRate;
         this.waybillNumberApplication = waybillNumberApplication;
+        this.dianxiaomiAccountName = dianxiaomiAccountName;
     }
 
     public String getId() {
@@ -130,6 +134,14 @@ public class DummyConfig implements Serializable {
         this.waybillNumberApplication = waybillNumberApplication;
     }
 
+    public String getDianxiaomiAccountName() {
+        return this.dianxiaomiAccountName;
+    }
+
+    public void setDianxiaomiAccountName(String dianxiaomiAccountName) {
+        this.dianxiaomiAccountName = dianxiaomiAccountName;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("DummyConfig (");
@@ -142,6 +154,7 @@ public class DummyConfig implements Serializable {
         sb.append(", ").append(outOfStockCount);
         sb.append(", ").append(refundRate);
         sb.append(", ").append(waybillNumberApplication);
+        sb.append(", ").append(dianxiaomiAccountName);
 
         sb.append(")");
         return sb.toString();

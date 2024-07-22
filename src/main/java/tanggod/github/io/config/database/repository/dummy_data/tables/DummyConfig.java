@@ -38,7 +38,7 @@ import tanggod.github.io.config.database.repository.dummy_data.tables.records.Du
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DummyConfig extends TableImpl<DummyConfigRecord> {
 
-    private static final long serialVersionUID = 2061246792;
+    private static final long serialVersionUID = 1855227644;
 
     /**
      * The reference instance of <code>dummy_data.dummy_config</code>
@@ -92,6 +92,11 @@ public class DummyConfig extends TableImpl<DummyConfigRecord> {
      * The column <code>dummy_data.dummy_config.waybill_number_application</code>.
      */
     public final TableField<DummyConfigRecord, Integer> WAYBILL_NUMBER_APPLICATION = createField("waybill_number_application", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>dummy_data.dummy_config.dianxiaomi_account_name</code>.
+     */
+    public final TableField<DummyConfigRecord, String> DIANXIAOMI_ACCOUNT_NAME = createField("dianxiaomi_account_name", org.jooq.impl.SQLDataType.VARCHAR(100).nullable(false), this, "");
 
     /**
      * Create a <code>dummy_data.dummy_config</code> table reference

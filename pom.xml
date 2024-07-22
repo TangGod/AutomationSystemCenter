@@ -33,6 +33,12 @@
     </properties>
 
     <dependencies>
+            <!-- 添加MySQL Connector/Java依赖 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.23</version>
+            </dependency>
         <!-- lombok -->
         <!-- <dependency>
              <groupId>org.projectlombok</groupId>
@@ -175,6 +181,9 @@
                                 </schema>
                                 <schema>
                                     <inputSchema>dummy_data</inputSchema>
+                                </schema>
+                                <schema>
+                                    <inputSchema>independent_website</inputSchema>
                                 </schema>
                             </schemata>
                             <!--强制类型-->

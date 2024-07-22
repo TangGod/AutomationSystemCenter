@@ -40,7 +40,7 @@ import tanggod.github.io.config.database.repository.dummy_data.tables.records.Du
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DummyProduct extends TableImpl<DummyProductRecord> {
 
-    private static final long serialVersionUID = -452977510;
+    private static final long serialVersionUID = -1494411401;
 
     /**
      * The reference instance of <code>dummy_data.dummy_product</code>
@@ -129,6 +129,21 @@ public class DummyProduct extends TableImpl<DummyProductRecord> {
      * The column <code>dummy_data.dummy_product.supply_list</code>.
      */
     public final TableField<DummyProductRecord, String> SUPPLY_LIST = createField("supply_list", org.jooq.impl.SQLDataType.VARCHAR(5000).nullable(false), this, "");
+
+    /**
+     * The column <code>dummy_data.dummy_product.category_id</code>.
+     */
+    public final TableField<DummyProductRecord, String> CATEGORY_ID = createField("category_id", org.jooq.impl.SQLDataType.VARCHAR(200), this, "");
+
+    /**
+     * The column <code>dummy_data.dummy_product.minFluctuation</code>.
+     */
+    public final TableField<DummyProductRecord, Integer> MINFLUCTUATION = createField("minFluctuation", org.jooq.impl.SQLDataType.INTEGER, this, "");
+
+    /**
+     * The column <code>dummy_data.dummy_product.maxFluctuation</code>.
+     */
+    public final TableField<DummyProductRecord, Integer> MAXFLUCTUATION = createField("maxFluctuation", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
      * Create a <code>dummy_data.dummy_product</code> table reference

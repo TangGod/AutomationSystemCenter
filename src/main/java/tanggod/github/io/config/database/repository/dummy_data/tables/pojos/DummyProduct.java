@@ -24,7 +24,7 @@ import javax.annotation.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DummyProduct implements Serializable {
 
-    private static final long serialVersionUID = 1940909877;
+    private static final long serialVersionUID = 1141974962;
 
     private String     id;
     private String     productId;
@@ -41,6 +41,9 @@ public class DummyProduct implements Serializable {
     private Integer    itemsProbability;
     private Integer    mergeProbability;
     private String     supplyList;
+    private String     categoryId;
+    private Integer    minfluctuation;
+    private Integer    maxfluctuation;
 
     public DummyProduct() {}
 
@@ -60,6 +63,9 @@ public class DummyProduct implements Serializable {
         this.itemsProbability = value.itemsProbability;
         this.mergeProbability = value.mergeProbability;
         this.supplyList = value.supplyList;
+        this.categoryId = value.categoryId;
+        this.minfluctuation = value.minfluctuation;
+        this.maxfluctuation = value.maxfluctuation;
     }
 
     public DummyProduct(
@@ -77,7 +83,10 @@ public class DummyProduct implements Serializable {
         String     orderStatus,
         Integer    itemsProbability,
         Integer    mergeProbability,
-        String     supplyList
+        String     supplyList,
+        String     categoryId,
+        Integer    minfluctuation,
+        Integer    maxfluctuation
     ) {
         this.id = id;
         this.productId = productId;
@@ -94,6 +103,9 @@ public class DummyProduct implements Serializable {
         this.itemsProbability = itemsProbability;
         this.mergeProbability = mergeProbability;
         this.supplyList = supplyList;
+        this.categoryId = categoryId;
+        this.minfluctuation = minfluctuation;
+        this.maxfluctuation = maxfluctuation;
     }
 
     public String getId() {
@@ -216,6 +228,30 @@ public class DummyProduct implements Serializable {
         this.supplyList = supplyList;
     }
 
+    public String getCategoryId() {
+        return this.categoryId;
+    }
+
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public Integer getMinfluctuation() {
+        return this.minfluctuation;
+    }
+
+    public void setMinfluctuation(Integer minfluctuation) {
+        this.minfluctuation = minfluctuation;
+    }
+
+    public Integer getMaxfluctuation() {
+        return this.maxfluctuation;
+    }
+
+    public void setMaxfluctuation(Integer maxfluctuation) {
+        this.maxfluctuation = maxfluctuation;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("DummyProduct (");
@@ -235,6 +271,9 @@ public class DummyProduct implements Serializable {
         sb.append(", ").append(itemsProbability);
         sb.append(", ").append(mergeProbability);
         sb.append(", ").append(supplyList);
+        sb.append(", ").append(categoryId);
+        sb.append(", ").append(minfluctuation);
+        sb.append(", ").append(maxfluctuation);
 
         sb.append(")");
         return sb.toString();

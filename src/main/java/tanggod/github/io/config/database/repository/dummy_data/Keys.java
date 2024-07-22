@@ -14,11 +14,13 @@ import tanggod.github.io.config.database.repository.dummy_data.tables.DummyChatg
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyConfig;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyOrder;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyProduct;
+import tanggod.github.io.config.database.repository.dummy_data.tables.DummyProductCategory;
 import tanggod.github.io.config.database.repository.dummy_data.tables.DummyUserInfo;
 import tanggod.github.io.config.database.repository.dummy_data.tables.records.DummyAutucodeRecord;
 import tanggod.github.io.config.database.repository.dummy_data.tables.records.DummyChatgptUserNameRecord;
 import tanggod.github.io.config.database.repository.dummy_data.tables.records.DummyConfigRecord;
 import tanggod.github.io.config.database.repository.dummy_data.tables.records.DummyOrderRecord;
+import tanggod.github.io.config.database.repository.dummy_data.tables.records.DummyProductCategoryRecord;
 import tanggod.github.io.config.database.repository.dummy_data.tables.records.DummyProductRecord;
 import tanggod.github.io.config.database.repository.dummy_data.tables.records.DummyUserInfoRecord;
 
@@ -51,6 +53,7 @@ public class Keys {
     public static final UniqueKey<DummyConfigRecord> KEY_DUMMY_CONFIG_PRIMARY = UniqueKeys0.KEY_DUMMY_CONFIG_PRIMARY;
     public static final UniqueKey<DummyOrderRecord> KEY_DUMMY_ORDER_PRIMARY = UniqueKeys0.KEY_DUMMY_ORDER_PRIMARY;
     public static final UniqueKey<DummyProductRecord> KEY_DUMMY_PRODUCT_PRIMARY = UniqueKeys0.KEY_DUMMY_PRODUCT_PRIMARY;
+    public static final UniqueKey<DummyProductCategoryRecord> KEY_DUMMY_PRODUCT_CATEGORY_PRIMARY = UniqueKeys0.KEY_DUMMY_PRODUCT_CATEGORY_PRIMARY;
     public static final UniqueKey<DummyUserInfoRecord> KEY_DUMMY_USER_INFO_PRIMARY = UniqueKeys0.KEY_DUMMY_USER_INFO_PRIMARY;
 
     // -------------------------------------------------------------------------
@@ -68,6 +71,7 @@ public class Keys {
         public static final UniqueKey<DummyConfigRecord> KEY_DUMMY_CONFIG_PRIMARY = Internal.createUniqueKey(DummyConfig.DUMMY_CONFIG, "KEY_dummy_config_PRIMARY", DummyConfig.DUMMY_CONFIG.ID);
         public static final UniqueKey<DummyOrderRecord> KEY_DUMMY_ORDER_PRIMARY = Internal.createUniqueKey(DummyOrder.DUMMY_ORDER, "KEY_dummy_order_PRIMARY", DummyOrder.DUMMY_ORDER.ID);
         public static final UniqueKey<DummyProductRecord> KEY_DUMMY_PRODUCT_PRIMARY = Internal.createUniqueKey(DummyProduct.DUMMY_PRODUCT, "KEY_dummy_product_PRIMARY", DummyProduct.DUMMY_PRODUCT.ID);
+        public static final UniqueKey<DummyProductCategoryRecord> KEY_DUMMY_PRODUCT_CATEGORY_PRIMARY = Internal.createUniqueKey(DummyProductCategory.DUMMY_PRODUCT_CATEGORY, "KEY_dummy_product_category_PRIMARY", DummyProductCategory.DUMMY_PRODUCT_CATEGORY.ID);
         public static final UniqueKey<DummyUserInfoRecord> KEY_DUMMY_USER_INFO_PRIMARY = Internal.createUniqueKey(DummyUserInfo.DUMMY_USER_INFO, "KEY_dummy_user_info_PRIMARY", DummyUserInfo.DUMMY_USER_INFO.ID);
     }
 }
