@@ -16,6 +16,8 @@ public class WebsiteProductReviewDTO {
     private String    reviewTextContent;
     private String    reviewImageContent;
     private String comparedKey;
+    private Boolean   importWordPress;
+
 
     public String getId() {
         return id;
@@ -95,5 +97,13 @@ public class WebsiteProductReviewDTO {
 
     public void setComparedKey(String comparedKey) {
         this.comparedKey = comparedKey;
+    }
+
+    public Boolean getImportWordPress() {
+        return importWordPress;
+    }
+
+    public void setImportWordPress(Boolean importWordPress) {
+        this.importWordPress = importWordPress;
     }
 }

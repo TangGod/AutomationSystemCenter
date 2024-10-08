@@ -82,33 +82,33 @@ public class LoveInFaith extends JooqBaseService {
         addCookies(chromeDriver, cookies);
     }
 
-
-    //https://www.nuomiphp.com/eplan/585486.html
-    //JSON.toJSONString(chromeDriver.manage().getCookies())
-    public void login() {
+    public void initProperties() {
         initCookieList();
-
-
         System.setProperty("webdriver.chrome.driver", "/Users/tanggod/Desktop/macos-desktop-count/util/webdriver/chromedriver");
         chromeDriver = new ChromeDriver();
         chromeDriver.manage().window().maximize();
-        chromeDriver.get("https://www.loveinfaith.life/products/forgiven-sunflower-v-neck-3011?variant=41629261234243");
+    }
 
-        cookieLogin();
-
-        chromeDriver.get("https://www.loveinfaith.life/products/forgiven-sunflower-v-neck-3011?variant=41629261234243");
-
-        //爬产品列表();
-        爬商品评论();
+    public void destroy() {
         chromeDriver.quit();
     }
 
-    private void 爬商品评论() {
+
+    //https://www.nuomiphp.com/eplan/585486.html
+    //JSON.toJSONString(chromeDriver.manage().getCookies())
+    public void login(String requestLink) {
+        initProperties();
+        chromeDriver.get(requestLink);
+        cookieLogin();
+        chromeDriver.get(requestLink);
+    }
+
+    public void 爬商品评论() {
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yy");
 
         List<WebsiteProductDTO> websiteProductDTOList = webSiteProductService.listWebSiteProductByProductFilterZeroReviewSize();
-        for (int i = 0; i < websiteProductDTOList.size(); i++) {
-        //for (int i = 2; i < 3; i++) {
+        //for (int i = 0; i < websiteProductDTOList.size(); i++) {
+        for (int i = 194; i < websiteProductDTOList.size(); i++) {
             System.out.println("当前进度:" + (i + 1) + "/" + websiteProductDTOList.size() + "  " + websiteProductDTOList.get(i).getId());
             shouldExit = false;
             successSize = 0;
@@ -170,7 +170,9 @@ public class LoveInFaith extends JooqBaseService {
     private void 翻页() {
         finallyTask(() -> {
             scrollTop(chromeDriver, 5);
-            chromeDriver.findElement(By.cssSelector(".yotpo-horizontal-pagination")).findElement(By.cssSelector(".yotpo-reviews-pagination-item[aria-label='Goto next page']")).click();
+            if (0 != chromeDriver.findElements(By.cssSelector(".yotpo-horizontal-pagination")).size()) {
+                chromeDriver.findElement(By.cssSelector(".yotpo-horizontal-pagination")).findElement(By.cssSelector(".yotpo-reviews-pagination-item[aria-label='Goto next page']")).click();
+            }
         });
     }
 
@@ -209,6 +211,7 @@ public class LoveInFaith extends JooqBaseService {
     }
 
     private WebsiteProductReviewDTO 爬取每一条评论(String websiteProductId, int index, SimpleDateFormat formatter, int reviewSize) {
+        Set<String> sizeFlag = new HashSet<>();
         WebsiteProductReviewDTO websiteProductReviewDTO = new WebsiteProductReviewDTO();
         websiteProductReviewDTO.setWebsiteProductId(websiteProductId);
         List<WebElement> reviewElementList = 获取评论区列表WebElementList();
@@ -222,10 +225,19 @@ public class LoveInFaith extends JooqBaseService {
             if (获取评论区列表WebElementList().size() != reviewElementList.size()) {
             } else {
                 //用户名
-                String userName = 获取评论区列表WebElementList().get(index).findElement(By.cssSelector(".yotpo-reviewer-name")).getText();
-                websiteProductReviewDTO.setUserName(userName);
+                if (获取评论区列表WebElementList().size() - 1 < index) {
+                    sizeFlag.add("1");
+                    System.out.println("index超出当前页面评论数量 退出");
+                } else {
+                    String userName = 获取评论区列表WebElementList().get(index).findElement(By.cssSelector(".yotpo-reviewer-name")).getText();
+                    websiteProductReviewDTO.setUserName(userName);
+                }
             }
         });
+        if (sizeFlag.size() > 0) {
+            return null;
+        }
+
 
         finallyTask(() -> {
             if (获取评论区列表WebElementList().size() != reviewElementList.size()) {
@@ -299,12 +311,12 @@ public class LoveInFaith extends JooqBaseService {
         return websiteProductReviewDTO;
     }
 
-    private void 爬产品列表() {
-        phantomJsUtil.scrollTop(chromeDriver, 350);
+    public void 爬产品列表(int scrollTopCount) {
+        phantomJsUtil.scrollTop(chromeDriver, scrollTopCount);
 
         //1、查找所有产品列表
         List<WebElement> 产品列表 = 获取产品列表();
-        for (int i = 174; i < 产品列表.size(); i++) {
+        for (int i = 0; i < 产品列表.size(); i++) {
             int index = i;
             System.out.println("当前进度:" + (i + 1) + "/" + 产品列表.size());
 
@@ -333,13 +345,31 @@ public class LoveInFaith extends JooqBaseService {
         }
     }
 
+    public void 爬指定产品(String requestUrl) {
+        chromeDriver.get(requestUrl);
+
+        finallyTask(() -> {
+            System.out.println("采集数据 开始");
+            //3、采集数据
+            采集数据();
+            System.out.println("采集数据 结束");
+        });
+
+    }
+
+
     private List<WebElement> 获取产品列表() {
         return chromeDriver.findElements(By.cssSelector(".product-tile__details h3"));
     }
 
     private void 采集数据() {
         String currentUrl = chromeDriver.getCurrentUrl().split("\\?")[0];
-        BigDecimal price = new BigDecimal(chromeDriver.findElement(By.cssSelector(".product-price__price.on-sale")).getText().replace("$", ""));
+        BigDecimal price;
+        if (0 != chromeDriver.findElements(By.cssSelector(".product-price__price.on-sale")).size()) {
+            price = new BigDecimal(chromeDriver.findElement(By.cssSelector(".product-price__price.on-sale")).getText().replace("$", ""));
+        } else {
+            price = new BigDecimal(chromeDriver.findElement(By.cssSelector(".product-price__price")).getText().replace("$", ""));
+        }
         String title;
         if (0 == chromeDriver.findElements(By.cssSelector(".product-info__title")).size()) {
             title = chromeDriver.findElement(By.cssSelector(".product-name")).getText();
@@ -423,7 +453,7 @@ public class LoveInFaith extends JooqBaseService {
         //new LoveInFaith().login();
         ConfigurableApplicationContext configurableApplicationContext = SpringApplication.run(WebdriverApplication.class, args);
         LoveInFaith bean = configurableApplicationContext.getBean(LoveInFaith.class);
-        bean.login();
+        //bean.login();
 
     }
 }

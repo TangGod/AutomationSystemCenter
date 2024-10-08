@@ -37,6 +37,9 @@ public class WebSiteProductService extends JooqBaseService {
     public List<WebsiteProductDTO> listWebSiteProductByProductFilterZeroReviewSize() {
         return jooqStorage.dslSelect(dsl -> dsl.select().from(WebsiteProduct.WEBSITE_PRODUCT).where(
                 WebsiteProduct.WEBSITE_PRODUCT.REVIEW_SIZE.gt(0)
+                .and(
+                        WebsiteProduct.WEBSITE_PRODUCT.FILTER_SHOW.eq(false)
+                )
                 ).orderBy(
                 WebsiteProduct.WEBSITE_PRODUCT.REVIEW_SIZE.asc()
                 )

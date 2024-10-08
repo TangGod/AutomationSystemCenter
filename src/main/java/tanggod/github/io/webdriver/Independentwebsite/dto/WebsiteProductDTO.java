@@ -19,6 +19,10 @@ public class WebsiteProductDTO {
     private Date firstReviewDate;//首次评论时间
     private Boolean   wordPressAvailable;//我的独立站是否上架
     private String    wordPressUrl;//我的独立站上架链接
+    private Boolean   isChildLink;//是否子链接
+    private Integer   wordPressReviewSize;//我的独立站链接评论数
+    private Integer   wordPressPostId;//我的wordpress的产品id
+    private Boolean   filterShow;//显示过滤
 
     private Integer realityReviewSize;//真实评论数量，现在是关联查询评论表出来
 
@@ -124,5 +128,37 @@ public class WebsiteProductDTO {
 
     public void setRealityReviewSize(Integer realityReviewSize) {
         this.realityReviewSize = realityReviewSize;
+    }
+
+    public Boolean getChildLink() {
+        return isChildLink;
+    }
+
+    public void setChildLink(Boolean childLink) {
+        isChildLink = childLink;
+    }
+
+    public Integer getWordPressReviewSize() {
+        return wordPressReviewSize;
+    }
+
+    public void setWordPressReviewSize(Integer wordPressReviewSize) {
+        this.wordPressReviewSize = wordPressReviewSize;
+    }
+
+    public Integer getWordPressPostId() {
+        return wordPressPostId;
+    }
+
+    public void setWordPressPostId(Integer wordPressPostId) {
+        this.wordPressPostId = wordPressPostId;
+    }
+
+    public Boolean getFilterShow() {
+        return filterShow;
+    }
+
+    public void setFilterShow(Boolean filterShow) {
+        this.filterShow = filterShow;
     }
 }
